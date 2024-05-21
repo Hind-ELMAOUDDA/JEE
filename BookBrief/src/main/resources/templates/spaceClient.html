@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Client Space</title>
+</head>
+<body>
+
+<h1>Welcome to the Client Space</h1>
+
+<div th:if="${session.user}">
+    <p>Hello, <span th:text="${session.user.firstName}"></span>!</p>
+    <p><a th:href="@{/logout}">Logout</a></p>
+</div>
+
+<div th:unless="${session.user}">
+    <p>Please <a th:href="@{/login}">login</a> or <a th:href="@{/register}">register</a> to access the client space.</p>
+</div>
+
+</body>
+</html>
